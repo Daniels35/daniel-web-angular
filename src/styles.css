@@ -1,6 +1,16 @@
+:root {
+  --primary-color: #ec1839;
+  --bg-color: #f2f2fc;
+  --text-color: #302e4d;
+}
 
-html, body {
-  margin: 0;
-  padding: 0;
-  height: 100%;
+[data-theme='dark'] {
+  --bg-color: #151515;
+  --text-color: #ffffff;
+}
+
+body {
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
 }
