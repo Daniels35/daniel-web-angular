@@ -1,15 +1,35 @@
-<div class="container">
-  <h1>🚧 Sitio en construcción</h1>
+<div class="style-switcher" [class.open]="ui.showSwitcher()">
+    <div class="style-switcher-toggler s-icon" (click)="ui.toggleSwitcher()">
+        <i class="fas fa-cog fa-spin"></i>
+    </div>
+    
+    <div class="day-night s-icon" (click)="ui.toggleTheme()">
+        <i class="fas" [class.fa-sun]="ui.theme() === 'light'" [class.fa-moon]="ui.theme() === 'dark'"></i>
+    </div>
 
-  <p class="subtitle">
-    Mi sitio web personal en Angular estará disponible muy pronto.
-  </p>
+    <h4>{{ 'titleLanguage' | translate }}</h4>
+    <div class="languages">
+        <span (click)="ui.setLanguage('es')" [class.active]="ui.language() === 'es'">ES</span>
+        <span (click)="ui.setLanguage('en')" [class.active]="ui.language() === 'en'">EN</span>
+    </div>
 
-  <p class="name">Daniel Stiven Diaz</p>
-  <p class="role">Full Stack Developer</p>
+    <h4>{{ 'titleColor' | translate }}</h4>
+    <div class="colors">
+        <span style="background: #ec1839"></span>
+    </div>
+</div>
 
-  <div class="social">
-    <a href="https://github.com/Daniels35" target="_blank">GitHub</a>
-    <a href="https://www.linkedin.com/in/danielsdiaz35" target="_blank">LinkedIn</a>
-  </div>
+<div class="main-content">
+    <section class="home">
+        <div class="container">
+            <h1>{{ 'inicioName' | translate }} Daniel Stiven</h1>
+            <p class="subtitle">{{ 'inicioPresentation' | translate }}</p>
+            
+            <div class="buttons">
+                <a href="#" class="btn">{{ 'inicioDownloadCV' | translate }}</a>
+            </div>
+        </div>
+    </section>
+
+    <router-outlet></router-outlet>
 </div>
